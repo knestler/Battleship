@@ -2,7 +2,7 @@ require "./lib/ship"
 
 RSpec.describe Ship do
 
-    before :each do 
+    before :each do
         @cruiser = Ship.new("Cruiser", 3)
     end
 
@@ -29,8 +29,6 @@ RSpec.describe Ship do
         @cruiser.hit
         expect(@cruiser.health).to eq(0)
         expect(@cruiser.sunk?).to be(true)
-    end 
-
-
+    end
 
 end
