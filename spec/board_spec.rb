@@ -13,18 +13,18 @@ RSpec.describe Board do
     expect(@board).to be_instance_of(Board)
     expect(@board.cells).to be_a(Hash)
     expect(@board.cells.keys.length).to eq(16)
-    expect(@board.cells.values).to all(be_instance_of(Card))
+    expect(@board.cells.values).to all(be_instance_of(Cell))
   end
 
-  xit 'can tell if coordinates are on the board' do
-    expect(@board.valid_coordinate?("A1")).to be_true
-    expect(@board.valid_coordinate?("D4")).to be_true
-    expect(@board.valid_coordinate?("A5")).to be_false
-    expect(@board.valid_coordinate?("E1")).to be_false
-    expect(@board.valid_coordinate?("A22")).to be_false
+  it 'can tell if coordinates are on the board' do
+    expect(@board.valid_coordinate?("A1")).to be(true)
+    expect(@board.valid_coordinate?("D4")).to be(true)
+    expect(@board.valid_coordinate?("A5")).to be(false)
+    expect(@board.valid_coordinate?("E1")).to be(false)
+    expect(@board.valid_coordinate?("A22")).to be(false)
   end
 
-  xit 'validates the number of coordinates matches ship length' do
+  it 'validates the number of coordinates matches ship length' do
     expect(@board.valid_placement?(@cruiser, ["A1", "A2"])).to be_false
     expect(@board.valid_placement?(@submarine, ["A2", "A3", "A4"])).to be_false
     expect(@board.valid_placement?(@submarine, ["A1", "A2"])).to be_true
