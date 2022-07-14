@@ -31,10 +31,31 @@ class Board
     @cells.include?(cell)
   end
 
-  def 
-  
+  def placement_valid_length?(ship, placement_array)
+    ship.length == placement_array.length
   end
 
+  def placement_coords_consecutive?(placement_array)
+    letters = placement_array.map{|coord| coord[0].ord}
+    numbers = placement_array.map{|coord| coord[1..-1]}
+    
+    # letters all the same and number increasing
+    # OR numbers all the same and letters increasing
+
+    
+    
+    
+  end
+
+  def valid_placement?(ship, placement_array)
+    placement_valid_length?(ship, placement_array)
+    placement_coords_consecutive?(placement_array)
+  #make sure either the letter or number is increasing or decreasing by one
+    
+
+  end
+
+  #
 
 
 
