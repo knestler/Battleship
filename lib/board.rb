@@ -26,7 +26,6 @@ class Board
      }
   end
 
-# it exists within the cells hash
   def valid_coordinate?(cell)
     @cells.include?(cell)
   end
@@ -37,28 +36,17 @@ class Board
 
   def placement_coords_consecutive?(placement_array)
     letters = placement_array.map{|coord| coord[0].ord}
-    numbers = placement_array.map{|coord| coord[1..-1]}
-    
-    # letters all the same and number increasing
-    # OR numbers all the same and letters increasing
-
-    
-    
-    
+    numbers = placement_array.map{|coord| coord[1..-1].to_i}
+    #numbers_consecutive = numbers.each_cons(2).all? {|a,b| b == a + 1 } ^letters_consecutive = letters.each_cons(2).all? {|a,b| b == a + 1 }
+    numbers.each_cons(2).all? {|a,b| b == a + 1 } ^ letters.each_cons(2).all? {|a,b| b == a + 1 }
   end
 
   def valid_placement?(ship, placement_array)
-    placement_valid_length?(ship, placement_array)
+    placement_valid_length?(ship, placement_array) && 
     placement_coords_consecutive?(placement_array)
-  #make sure either the letter or number is increasing or decreasing by one
-    
-
   end
 
-  #
-
-
-
+  
 end
 
 
