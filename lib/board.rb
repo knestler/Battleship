@@ -34,28 +34,39 @@ class Board
     ship.length == placement_array.length
   end
 
+  def array_consecutive?(array)
+    array.each_cons(2).all? {|a,b| b == a + 1 }
+  end
+
+  def array_elements_same?(array)
+    array.all?{|element| element == array[0]}
+  end
+
   def placement_coords_consecutive?(placement_array)
     letters = placement_array.map{|coord| coord[0].ord}
     numbers = placement_array.map{|coord| coord[1..-1].to_i}
     #numbers_consecutive = numbers.each_cons(2).all? {|a,b| b == a + 1 } ^letters_consecutive = letters.each_cons(2).all? {|a,b| b == a + 1 }
-    numbers.each_cons(2).all? {|a,b| b == a + 1 } ^ letters.each_cons(2).all? {|a,b| b == a + 1 }
+    #numbers.each_cons(2).all? {|a,b| b == a + 1 } ^ letters.each_cons(2).all? {|a,b| b == a + 1 }
+    (array_consecutive?(letters) && array_elements_same?(numbers)) ||
+    (array_consecutive?(numbers) && array_elements_same?(letters))
+
   end
 
   # Iterate throuch placement array
   # call cell.empty?
   # return tru if .empty? is true for ALL elements of placement array
-  def stacked_ship?(placement_array)
-    empty_array = []
+  def unstacked_ship?(placement_array)
+    cell_empty = []
     placement_array.each do |coord|
-      empty_array << @cells[coord].empty?
+      cell_empty << @cells[coord].empty?
     end
-    empty_array.all?(true)
-  end 
+    cell_empty.all?(true)
+  end
 
   def valid_placement?(ship, placement_array)
-    placement_valid_length?(ship, placement_array) && 
+    placement_valid_length?(ship, placement_array) &&
     placement_coords_consecutive?(placement_array) &&
-    stacked_ship?(placement_array)
+    unstacked_ship?(placement_array)
   end
 
   def place(ship, placement_array)
