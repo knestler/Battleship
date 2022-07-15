@@ -6,8 +6,81 @@ class Board
   # default board size = 4
   def initialize(board_size = 4)
     # @board_size = board_size
-    # @cells =
+    @cells = {
+      "A1" => Cell.new("A1"),
+      "A2" => Cell.new("A2"),
+      "A3" => Cell.new("A3"),
+      "A4" => Cell.new("A4"),
+      "B1" => Cell.new("B1"),
+      "B2" => Cell.new("B2"),
+      "B3" => Cell.new("B3"),
+      "B4" => Cell.new("B4"),
+      "C1" => Cell.new("C1"),
+      "C2" => Cell.new("C2"),
+      "C3" => Cell.new("C3"),
+      "C4" => Cell.new("C4"),
+      "D1" => Cell.new("D1"),
+      "D2" => Cell.new("D2"),
+      "D3" => Cell.new("D3"),
+      "D4" => Cell.new("D4")
+     }
   end
+
+  def valid_coordinate?(cell)
+    @cells.include?(cell)
+  end
+
+  def placement_valid_length?(ship, placement_array)
+    ship.length == placement_array.length
+  end
+
+  def placement_coords_consecutive?(placement_array)
+    letters = placement_array.map{|coord| coord[0].ord}
+    numbers = placement_array.map{|coord| coord[1..-1].to_i}
+    #numbers_consecutive = numbers.each_cons(2).all? {|a,b| b == a + 1 } ^letters_consecutive = letters.each_cons(2).all? {|a,b| b == a + 1 }
+    numbers.each_cons(2).all? {|a,b| b == a + 1 } ^ letters.each_cons(2).all? {|a,b| b == a + 1 }
+  end
+
+  # Iterate throuch placement array
+  # call cell.empty?
+  # return tru if .empty? is true for ALL elements of placement array
+  def stacked_ship?(placement_array)
+    empty_array = []
+    placement_array.each do |coord|
+      empty_array << @cells[coord].empty?
+    end
+    empty_array.all?(true)
+  end 
+
+  def valid_placement?(ship, placement_array)
+    placement_valid_length?(ship, placement_array) && 
+    placement_coords_consecutive?(placement_array) &&
+    stacked_ship?(placement_array)
+  end
+
+  def place(ship, placement_array)
+    placement_array.each do |coord|
+      @cells[coord].place_ship(ship)
+    end
+  end
+
+  def render(display_ship = false)
+    "  1 2 3 4 \n" +
+    "A " + @cells["A1"].render(display_ship) + " " + @cells["A2"].render(display_ship) + " " + @cells["A3"].render(display_ship) + " " + @cells["A4"].render(display_ship) + " \n" +
+    "B " + @cells["B1"].render(display_ship) + " " + @cells["B2"].render(display_ship) + " " + @cells["B3"].render(display_ship) + " " + @cells["B4"].render(display_ship) + " \n" +
+    "C " + @cells["C1"].render(display_ship) + " " + @cells["C2"].render(display_ship) + " " + @cells["C3"].render(display_ship) + " " + @cells["C4"].render(display_ship) + " \n" +
+    "D " + @cells["D1"].render(display_ship) + " " + @cells["D2"].render(display_ship) + " " + @cells["D3"].render(display_ship) + " " + @cells["D4"].render(display_ship) + " \n"
+  end
+
+
+end
+
+
+
+
+
+
+
 
   ## Not yet working... come back to it for Iteration 4
   # def create_cells
@@ -22,5 +95,3 @@ class Board
   #   end
   #   cells_hash
   # end
-
-end
