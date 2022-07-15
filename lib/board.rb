@@ -41,12 +41,34 @@ class Board
     numbers.each_cons(2).all? {|a,b| b == a + 1 } ^ letters.each_cons(2).all? {|a,b| b == a + 1 }
   end
 
+  # Iterate throuch placement array
+  # call cell.empty?
+  # return tru if .empty? is true for ALL elements of placement array
+  def stacked_ship?(placement_array)
+    empty_array = []
+    placement_array.each do |coord|
+      empty_array << @cells[coord].empty?
+
+    end
+    empty_array.all?(true)
+  end 
+
   def valid_placement?(ship, placement_array)
     placement_valid_length?(ship, placement_array) && 
-    placement_coords_consecutive?(placement_array)
+    placement_coords_consecutive?(placement_array) &&
+    stacked_ship?(placement_array)
   end
 
-  
+  def place(ship, placement_array)
+    placement_array.each do |coord|
+      @cells[coord].place_ship(ship)
+    end
+  end
+
+
+
+
+
 end
 
 

@@ -44,8 +44,8 @@ RSpec.describe Board do
     expect(@board.valid_placement?(@submarine, ["C2", "D3"])).to be(false)
   end
 
-  xit 'places ships in cells' do
-    board.place(@cruiser, ["A1", "A2", "A3"])
+  it 'places ships in cells' do
+    @board.place(@cruiser, ["A1", "A2", "A3"])
 
     cell_1 = @board.cells["A1"]
     cell_2 = @board.cells["A2"]
@@ -56,13 +56,13 @@ RSpec.describe Board do
     expect(cell_3.ship).to be(@cruiser)
    end
 
-  xit 'validates that ships cannot be placed on each other' do
+  it 'validates that ships cannot be placed on each other' do
     @board.place(@cruiser, ["A1", "A2", "A3"])
 
     expect(@board.valid_placement?(@submarine, ["A1", "B1"])).to be(false)
   end
 
-  xit 'renders the board' do
+  it 'renders the board' do
      @board.place(@cruiser, ["A1", "A2", "A3"])
      expect(@board.render).to match("  1 2 3 4 \n" +
                                     "A . . . . \n" +
