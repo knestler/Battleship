@@ -37,6 +37,7 @@ RSpec.describe Board do
     expect(@board.valid_placement?(@submarine, ["C1", "B1"])).to be(false)
     expect(@board.valid_placement?(@cruiser, ["A1", "A2", "A3"])).to be(true)
     expect(@board.valid_placement?(@submarine, ["B1", "C1"])).to be(true)
+    expect(@board.valid_placement?(@cruiser, ["A1", "B2", "A3"])).to be(false)
   end
 
   it 'validates ship placement coordinates are not diagonal' do
