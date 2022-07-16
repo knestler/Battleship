@@ -6,6 +6,7 @@ RSpec.describe Player do
     @player = Player.new
     @cruiser = Ship.new("Cruiser", 3)
     @submarine = Ship.new("Submarine", 2)
+
   end
 
   it "exists" do
@@ -14,6 +15,15 @@ RSpec.describe Player do
 
   it "has a board" do
     expect(@player.board).to be_instance_of(Board)
+  end
+
+  it "Has ships" do
+    expect(@player.ships).to all(be_instance_of(Ship))
+  end
+
+  xit 'Prompts the player to place ships' do
+    
+
   end
 
 end
