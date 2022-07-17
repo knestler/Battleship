@@ -76,7 +76,11 @@ class Board
   def unstacked_ship?(placement_array)
     cell_empty = []
     placement_array.each do |coord|
-      cell_empty << @cells[coord].empty?
+      if @cells[coord] != nil
+        cell_empty << @cells[coord].empty?
+      else
+        return false
+      end
     end
     cell_empty.all?(true)
   end

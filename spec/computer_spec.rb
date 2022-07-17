@@ -10,7 +10,7 @@ RSpec.describe Computer do
         @cruiser = Ship.new("Cruiser", 3)
         @submarine = Ship.new("Submarine", 2)
     end
-   
+
     it 'board and ships exist' do
         expect(@computer.computer_board).to be_a Board
         expect(@computer.ships).to be_a Array
@@ -25,14 +25,13 @@ RSpec.describe Computer do
     end
 
     it 'validates random array' do
-        expect(@computer.valid_coords(@cruiser)).to be_a Array
-        expect(@computer.valid_coords(@cruiser).length).to eq 3
-        @computer.valid_coords(@cruiser)
+        #expect(@computer.random_array(@cruiser)).to be_a Array
+        expect(@computer.random_array(@cruiser).length).to eq 3
+        #@computer.valid_coords(@cruiser)
     end
-    
-    xit 'once given a ship it can find random valid coordinates' do      
+
+    xit 'once given a ship it can find random valid coordinates' do
         @computer.place_ship == true
     end
 
 end
-

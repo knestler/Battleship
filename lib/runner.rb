@@ -7,6 +7,7 @@ play = gets.chomp
 round = Round.new
 
 loop do
+  
   if play == "p"
     puts round.start
     break
