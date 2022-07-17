@@ -24,14 +24,20 @@ RSpec.describe Computer do
         expect(@computer.random_array(@cruiser)).to be_a Array
     end
 
-    it 'validates random array' do
-        #expect(@computer.random_array(@cruiser)).to be_a Array
-        expect(@computer.random_array(@cruiser).length).to eq 3
-        #@computer.valid_coords(@cruiser)
+    it 'randomly places the ship (horizontal)' do
+      allow(@computer).to receive(:random_cell).and_return("C1")
+      allow(@computer).to receive(:horizontal_or_vertical).and_return("H")
+      expect(@computer.random_array(@cruiser)).to eq(["C1", "C2", "C3"])
     end
 
-    xit 'once given a ship it can find random valid coordinates' do
-        @computer.place_ship == true
+    it 'randomly places the ship (vertical)' do
+      allow(@computer).to receive(:random_cell).and_return("B1")
+      allow(@computer).to receive(:horizontal_or_vertical).and_return("V")
+      expect(@computer.random_array(@cruiser)).to eq(["B1", "C1", "D1"])
+    end
+
+    it 'validates random array' do
+        expect(@computer.random_array(@cruiser).length).to eq 3
     end
 
 end

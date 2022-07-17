@@ -21,12 +21,4 @@ RSpec.describe Player do
     expect(@player.ships).to all(be_instance_of(Ship))
   end
 
-  it 'gets ship coords' do
-    @player.get_ship_coords(0)
-    
-    expect()
-
-
-  end
-
 end

@@ -12,14 +12,17 @@ class Computer
     random_sample = @computer_board.cells.keys.sample
   end
 
+  def horizontal_or_vertical
+    ["H", "V"].sample
+  end
+
   def random_array(ship)
     placement_array = []
     until @computer_board.valid_placement?(ship, placement_array)
       placement_array = [random_cell]
-      sample = ["H", "V"].sample
+      sample = horizontal_or_vertical
       i = 0
-
-      if sample == "H"
+      if sample == "V"
         until placement_array.length == ship.length
           placement_array << placement_array[i][0].next + placement_array[i][1..-1]
           i += 1
@@ -39,6 +42,5 @@ class Computer
     @ships.each do |ship|
       @computer_board.place(ship, random_array(ship))
     end
-  #  @computer_board.render(true)
   end
 end
