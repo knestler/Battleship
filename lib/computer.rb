@@ -66,7 +66,7 @@ class Computer
         elsif @board.cells[shot_coords].ship != nil && !@board.cells[shot_coords].ship.sunk?
           puts "Your shot on #{shot_coords} was a hit!"
         else
-          puts "Your #{@board.cells[shot_coords].ship.name} was sunk!"
+          puts "My #{@board.cells[shot_coords].ship.name} was sunk!"
         end
         break
       end

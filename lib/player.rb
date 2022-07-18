@@ -56,7 +56,7 @@ class Player
         elsif @board.cells[shot_coords].ship != nil && !@board.cells[shot_coords].ship.sunk?
           puts "My shot on #{shot_coords} was a hit!"
         else
-          puts "My #{@board.cells[shot_coords].ship} was sunk!"
+          puts "Your #{@board.cells[shot_coords].ship.name} was sunk!"
         end
         break
 

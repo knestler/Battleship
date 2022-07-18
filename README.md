@@ -16,13 +16,13 @@
 - ~~Game ends when all the computer’s ships are sunk (Round)~~
 - ~~Game reports who won (Round)~~
 - ~~Game returns user back to the Main Menu (Round/ Runner)~~
-- Further testing for player and computer class
 - ~~Debug board rendering test~~
-- Bug: When board shows ships (player board) it does not render hits on those ships
-- Bug: Notification that a ship has been sunk only displays at end of game
-- Bug: Computer displaying their ship was sunk after a miss?
-- Bug: Computer displaying ship object ID rather than ship name
-- Bug: Entire miss/hit/sunk interaction appears broken
+- ~~Bug: When board shows ships (player board) it does not render hits on those ships~~
+- ~~Bug: Notification that a ship has been sunk only displays at end of game~~
+- ~~Bug: Computer displaying their ship was sunk after a miss?~~
+- ~~Bug: Computer displaying ship object ID rather than ship name~~
+- ~~Bug: Entire miss/hit/sunk interaction appears broken~~
+- ~~Further testing for player and computer class~~
 - Ensure all inputs are validated and accept any case
 - Check indentation
 - Iteration 4
