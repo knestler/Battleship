@@ -20,7 +20,8 @@ class Round
     @computer.board.render
     puts "==============PLAYER BOARD=============="
     @player.board.render
-#    @computer.player_shot
-#    @player.computer_shot
+   @computer.player_shot
+   @player.computer_shot
+ end
 
 end

@@ -17,7 +17,7 @@
 - Game reports who won (Round)
 - Game returns user back to the Main Menu (Round/ Runner)
 - Further testing for player and computer class
-- Debug board rendering test
+- ~~Debug board rendering test~~
 - Ensure all inputs are validated and accept any case
 - Check indentation
 - Iteration 4

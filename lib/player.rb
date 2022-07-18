@@ -53,7 +53,7 @@ class Player
         @board.cells[shot_coords].fire_upon
         if @board.cells[shot_coords].ship == nil
           puts "My shot on #{shot_coords} was a miss"
-        elsif @board.cells[shot_coords].ship == !nil && @ship.sunk? == false
+        elsif @board.cells[shot_coords].ship != nil && !@board.cells[shot_coords].ship.sunk?
           puts "My shot on #{shot_coords} was a hit!"
         else
           puts "My #{@board.cells[shot_coords].ship} was sunk!"

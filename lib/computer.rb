@@ -1,6 +1,7 @@
 class Computer
 
-  attr_reader :board, :ships
+  attr_accessor :ships
+  attr_reader :board
 
   def initialize
     @board = Board.new
@@ -42,4 +43,28 @@ class Computer
       @board.place(ship, random_array(ship))
     end
   end
+
+  def player_cell_input
+    gets.chomp.upcase
+  end
+
+  def player_shot
+    puts "Enter the coordinate for your shot:"
+    loop do
+      shot_coords = player_cell_input
+      if !@board.cells[shot_coords].fired_upon? && @board.cells.keys.include?(shot_coords)
+        @board.cells[shot_coords].fire_upon
+        if @board.cells[shot_coords].ship == nil
+          puts "Your shot on #{shot_coords} was a miss"
+        elsif @board.cells[shot_coords].ship != nil && !@board.cells[shot_coords].ship.sunk?
+          puts "Your shot on #{shot_coords} was a hit!"
+        else
+          puts "Your #{@board.cells[shot_coords].ship.name} was sunk!"
+        end
+        break
+      end
+      puts "Please enter a valid coordinate:"
+    end
+  end
+
 end
