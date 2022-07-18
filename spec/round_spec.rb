@@ -1,5 +1,7 @@
 require './lib/round.rb'
-RSpec.describ Round do
+require './lib/ship.rb'
+
+RSpec.describe Round do
 
   it 'has a computer player' do
   end

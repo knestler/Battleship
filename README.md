@@ -12,10 +12,10 @@
 - User is informed when they have already fired on a coordinate (Computer)
 
 - Board is updated after a turn (Board)
-- Game ends when all the user’s ships are sunk (Round)
-- Game ends when all the computer’s ships are sunk (Round)
-- Game reports who won (Round)
-- Game returns user back to the Main Menu (Round/ Runner)
+- ~~Game ends when all the user’s ships are sunk (Round)~~
+- ~~Game ends when all the computer’s ships are sunk (Round)~~
+- ~~Game reports who won (Round)~~
+- ~~Game returns user back to the Main Menu (Round/ Runner)~~
 - Further testing for player and computer class
 - Debug board rendering test
 - Ensure all inputs are validated and accept any case

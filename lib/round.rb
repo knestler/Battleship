@@ -22,5 +22,18 @@ class Round
     @player.board.render
 #    @computer.player_shot
 #    @player.computer_shot
+  end
 
+  def player_loses
+    # @ships = [Ship.new("Cruiser", 3), Ship.new("Submarine", 2)]
+    if @player.ships.all? { |ship| ship.sunk? }
+      break
+    end
+  end
+
+  def computer_loses
+    if @computer.ships.all? { |ship| ship.sunk? }
+      break
+    end
+  end 
 end
