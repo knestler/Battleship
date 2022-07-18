@@ -14,4 +14,13 @@ class Round
     @computer.place_ships
     @player.place_ships
   end
+
+  def take_turn
+    puts "=============COMPUTER BOARD============="
+    @computer.board.render
+    puts "==============PLAYER BOARD=============="
+    @player.board.render
+#    @computer.player_shot
+#    @player.computer_shot
+
 end

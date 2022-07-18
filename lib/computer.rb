@@ -1,15 +1,14 @@
 class Computer
 
-  attr_reader :computer_board, :ships
+  attr_reader :board, :ships
 
   def initialize
-    @computer_board = Board.new
+    @board = Board.new
     @ships = [Ship.new("Cruiser", 3), Ship.new("Submarine", 2)]
   end
 
   def random_cell
-    @computer_board.cells
-    random_sample = @computer_board.cells.keys.sample
+    @board.cells.keys.sample
   end
 
   def horizontal_or_vertical
@@ -18,7 +17,7 @@ class Computer
 
   def random_array(ship)
     placement_array = []
-    until @computer_board.valid_placement?(ship, placement_array)
+    until @board.valid_placement?(ship, placement_array)
       placement_array = [random_cell]
       sample = horizontal_or_vertical
       i = 0
@@ -40,7 +39,7 @@ class Computer
 
   def place_ships
     @ships.each do |ship|
-      @computer_board.place(ship, random_array(ship))
+      @board.place(ship, random_array(ship))
     end
   end
 end

@@ -12,7 +12,7 @@ RSpec.describe Computer do
     end
 
     it 'board and ships exist' do
-        expect(@computer.computer_board).to be_a Board
+        expect(@computer.board).to be_a Board
         expect(@computer.ships).to be_a Array
     end
 
@@ -37,7 +37,10 @@ RSpec.describe Computer do
     end
 
     it 'validates random array' do
-        expect(@computer.random_array(@cruiser).length).to eq 3
+      expect(@computer.random_array(@cruiser).length).to eq 3
     end
+
+
+
 
 end

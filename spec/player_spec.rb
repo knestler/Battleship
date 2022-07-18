@@ -21,4 +21,10 @@ RSpec.describe Player do
     expect(@player.ships).to all(be_instance_of(Ship))
   end
 
+  it 'Allows the computer to take a random shot' do
+
+    allow(@player).to receive(:random_cell).and_return("B1")
+    @player.computer_shot
+    expect(@player.board.cells["B1"].fired_upon?).to be(true)
+  end
 end
