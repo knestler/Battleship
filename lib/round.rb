@@ -13,15 +13,30 @@ class Round
   def start
     @computer.place_ships
     @player.place_ships
+    take_turn
   end
 
   def take_turn
-    puts "=============COMPUTER BOARD============="
-    @computer.board.render
-    puts "==============PLAYER BOARD=============="
-    @player.board.render
-   @computer.player_shot
-   @player.computer_shot
+    loop do
+      @computer.render
+      @player.render
+      @computer.player_shot
+      if player_won?
+        break
+      end
+      @player.computer_shot
+      if computer_won?
+        break
+      end
+    end
+ end
+
+ def computer_won?
+   @player.ships.all?{|ship| ship.sunk?}
+ end
+
+ def player_won?
+   @computer.ships.all?{|ship| ship.sunk?}
  end
 
 end

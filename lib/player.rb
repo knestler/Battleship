@@ -13,7 +13,7 @@ class Player
     puts "I have laid my ships out on the grid."
     puts "You now need to lay out your two ships."
     puts "The Cruiser is three units long and the Submarine is two units long."
-    @board.render
+    render
     puts "Enter the squares for the Cruiser (3 spaces)"
     puts "Example: 'A1 A2 A3'"
     add_ship_to_board(0)
@@ -25,7 +25,7 @@ class Player
   def add_ship_to_board(ship_element_num)
     coords = get_ship_coords(ship_element_num)
     @board.place(@ships[ship_element_num], coords)
-    @board.render(true)
+    render
   end
 
 
@@ -36,7 +36,7 @@ class Player
         break
       else
         puts "Those are invalid coordinates. Please try again:"
-        @board.render(true)
+        render
       end
     end
     coord
@@ -62,6 +62,11 @@ class Player
 
       end
     end
+  end
+
+  def render
+    puts "==============PLAYER BOARD=============="
+    @board.render(true)
   end
 
 end

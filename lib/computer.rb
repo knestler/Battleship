@@ -52,6 +52,13 @@ class Computer
     puts "Enter the coordinate for your shot:"
     loop do
       shot_coords = player_cell_input
+      until @board.cells.keys.include?(shot_coords)
+        puts "Please enter a valid coordinate:"
+        shot_coords = player_cell_input
+      end
+      if @board.cells[shot_coords].fired_upon?
+        puts "You have already tried to shoot there."
+      end
       if !@board.cells[shot_coords].fired_upon? && @board.cells.keys.include?(shot_coords)
         @board.cells[shot_coords].fire_upon
         if @board.cells[shot_coords].ship == nil
@@ -65,6 +72,11 @@ class Computer
       end
       puts "Please enter a valid coordinate:"
     end
+  end
+
+  def render
+    puts "=============COMPUTER BOARD============="
+    @board.render
   end
 
 end
