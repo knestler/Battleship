@@ -40,7 +40,19 @@ RSpec.describe Computer do
       expect(@computer.random_array(@cruiser).length).to eq 3
     end
 
+    it 'allows the player to take a shot' do
+      @computer.ships = [@cruiser]
+      allow(@computer).to receive(:random_cell).and_return("B1")
+      allow(@computer).to receive(:horizontal_or_vertical).and_return("V")
+      @computer.place_ships
 
+      expect(@computer.board.cells["B1"].fired_upon?).to be(false)
+      allow(@computer).to receive(:player_cell_input).and_return("B1")
+      @computer.player_shot
+
+      expect(@computer.board.cells["B1"].fired_upon?).to be(true)
+      expect(@computer.ships[0].health).to eq(2)
+    end
 
 
 end

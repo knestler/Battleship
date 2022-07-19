@@ -65,7 +65,6 @@ RSpec.describe Board do
 
   it 'renders the board' do
      @board.place(@cruiser, ["A1", "A2", "A3"])
-     require "pry"; binding.pry
      expect(@board.render).to match("  1 2 3 4 \n" +
                                     "A . . . . \n" +
                                     "B . . . . \n" +

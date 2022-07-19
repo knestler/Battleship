@@ -43,11 +43,13 @@ class Board
   end
 
   def render(display_ship = false)
-    print "  1 2 3 4 \n" +
+    rendered = "  1 2 3 4 \n" +
     "A " + @cells["A1"].render(display_ship) + " " + @cells["A2"].render(display_ship) + " " + @cells["A3"].render(display_ship) + " " + @cells["A4"].render(display_ship) + " \n" +
     "B " + @cells["B1"].render(display_ship) + " " + @cells["B2"].render(display_ship) + " " + @cells["B3"].render(display_ship) + " " + @cells["B4"].render(display_ship) + " \n" +
     "C " + @cells["C1"].render(display_ship) + " " + @cells["C2"].render(display_ship) + " " + @cells["C3"].render(display_ship) + " " + @cells["C4"].render(display_ship) + " \n" +
     "D " + @cells["D1"].render(display_ship) + " " + @cells["D2"].render(display_ship) + " " + @cells["D3"].render(display_ship) + " " + @cells["D4"].render(display_ship) + " \n"
+    print rendered
+    rendered
   end
 
   private

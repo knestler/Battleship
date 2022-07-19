@@ -22,7 +22,6 @@ RSpec.describe Player do
   end
 
   it 'Allows the computer to take a random shot' do
-
     allow(@player).to receive(:random_cell).and_return("B1")
     @player.computer_shot
     expect(@player.board.cells["B1"].fired_upon?).to be(true)
