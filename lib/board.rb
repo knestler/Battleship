@@ -5,25 +5,8 @@ class Board
 
   # default board size = 4
   def initialize(board_size = 4)
-    # @board_size = board_size
-    @cells = {
-      "A1" => Cell.new("A1"),
-      "A2" => Cell.new("A2"),
-      "A3" => Cell.new("A3"),
-      "A4" => Cell.new("A4"),
-      "B1" => Cell.new("B1"),
-      "B2" => Cell.new("B2"),
-      "B3" => Cell.new("B3"),
-      "B4" => Cell.new("B4"),
-      "C1" => Cell.new("C1"),
-      "C2" => Cell.new("C2"),
-      "C3" => Cell.new("C3"),
-      "C4" => Cell.new("C4"),
-      "D1" => Cell.new("D1"),
-      "D2" => Cell.new("D2"),
-      "D3" => Cell.new("D3"),
-      "D4" => Cell.new("D4")
-     }
+    @board_size = board_size
+    @cells = create_cells
   end
 
   def valid_coordinate?(cell)
@@ -50,6 +33,23 @@ class Board
     "D " + @cells["D1"].render(display_ship) + " " + @cells["D2"].render(display_ship) + " " + @cells["D3"].render(display_ship) + " " + @cells["D4"].render(display_ship) + " \n"
     print rendered
     rendered
+  end
+
+  def create_cells
+    letters = "A".."Z"
+    row_labels = (letters.to_a.first(@board_size) * @board_size).sort
+    column_labels = []
+    @board_size.times do
+      column_labels << (1..@board_size).to_a
+    end
+    column_labels = column_labels.flatten.map{ |x| x.to_s}
+    cell_coords = row_labels.zip(column_labels).map { |x| x.join}
+
+    cells_hash = Hash.new{}
+    cell_coords.each do |coordinate|
+      cells_hash[coordinate] = Cell.new(coordinate)
+    end
+    cells_hash
   end
 
   private
@@ -96,13 +96,14 @@ end
 
 
 
-  ## Not yet working... come back to it for Iteration 4
+  # Not yet working... come back to it for Iteration 4
   # def create_cells
   #   letters = "A".."Z"
   #   column_labels = letters.to_a.first(@board_size)
   #   cell_coords = column_labels.map do |label|
   #                   label + (label.ord - 64).to_s
   #                 end
+  #                 pry
   #   cells_hash = Hash.new{}
   #   cell_coords.each do |coordinate|
   #     cells_hash[coordinate] = Cell.new(coordinate)
