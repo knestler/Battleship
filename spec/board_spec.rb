@@ -78,7 +78,9 @@ RSpec.describe Board do
   end
 
   it 'can choose a board size' do
-    @board.create_cells
+    #@board.create_cells
+    @board.variable_board_render
+    
   end
 
 end

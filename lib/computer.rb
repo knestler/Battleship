@@ -3,8 +3,8 @@ class Computer
   attr_accessor :ships
   attr_reader :board
 
-  def initialize
-    @board = Board.new
+  def initialize(board_size)
+    @board = Board.new(board_size)
     @ships = [Ship.new("Cruiser", 3), Ship.new("Submarine", 2)]
   end
 
@@ -76,7 +76,7 @@ class Computer
 
   def render
     puts "=============COMPUTER BOARD============="
-    @board.render
+    @board.variable_board_render
   end
 
 end

@@ -5,9 +5,14 @@ require './lib/ship'
 
 class Round
 
-  def initialize
-    @player = Player.new
-    @computer = Computer.new
+  def initialize(board_size)
+    @player = Player.new(board_size)
+    @computer = Computer.new(board_size)
+  end
+
+  def define_board_size
+    puts "What size board would you like to play with?"
+  
   end
 
   def start

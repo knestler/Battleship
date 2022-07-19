@@ -35,6 +35,33 @@ class Board
     rendered
   end
   
+  def variable_board_render(display_ship = false)
+    i=0
+    render_lines = ["  "]
+    
+    @board_size.times do
+      i += 1
+      render_lines << "#{i.to_s}"
+    end
+
+    j=0
+    render_lines << @board_size.times do
+      render_lines << " \n"
+      render_lines << @cells.keys[j][0]
+     
+      @board_size.times do
+        render_lines << @cells[@cells.keys[j]].render(display_ship)
+        j += 1
+      end
+    end
+    render_lines.pop
+    render_lines = render_lines.join(" ")
+   
+    print render_lines + "\n"
+    render_lines
+  end
+  
+
   private
 
   def create_cells
@@ -46,7 +73,6 @@ class Board
     end
     column_labels = column_labels.flatten.map{ |x| x.to_s}
     cell_coords = row_labels.zip(column_labels).map { |x| x.join}
-
     cells_hash = Hash.new{}
     cell_coords.each do |coordinate|
       cells_hash[coordinate] = Cell.new(coordinate)
