@@ -34,6 +34,8 @@ class Board
     print rendered
     rendered
   end
+  
+  private
 
   def create_cells
     letters = "A".."Z"
@@ -51,8 +53,6 @@ class Board
     end
     cells_hash
   end
-
-  private
 
   def placement_valid_length?(ship, placement_array)
     ship.length == placement_array.length
