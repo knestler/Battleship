@@ -2,17 +2,14 @@ require './lib/computer'
 require './lib/player'
 require './lib/board'
 require './lib/ship'
+require './lib/getter'
 
 class Round
 
-  def initialize(board_size)
-    @player = Player.new(board_size)
-    @computer = Computer.new(board_size)
-  end
-
-  def define_board_size
-    puts "What size board would you like to play with?"
-  
+  def initialize
+    @getter = Getter.new
+    @player = Player.new(@getter.board_size, @getter.player_ships)
+    @computer = Computer.new(@getter.board_size, @getter.computer_ships)
   end
 
   def start

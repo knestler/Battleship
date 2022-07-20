@@ -3,7 +3,6 @@ require './lib/cell'
 class Board
   attr_reader :cells
 
-  # default board size = 4
   def initialize(board_size = 4)
     @board_size = board_size
     @cells = create_cells
@@ -25,20 +24,9 @@ class Board
     end
   end
 
-  def render(display_ship = false)
-    rendered = "  1 2 3 4 \n" +
-    "A " + @cells["A1"].render(display_ship) + " " + @cells["A2"].render(display_ship) + " " + @cells["A3"].render(display_ship) + " " + @cells["A4"].render(display_ship) + " \n" +
-    "B " + @cells["B1"].render(display_ship) + " " + @cells["B2"].render(display_ship) + " " + @cells["B3"].render(display_ship) + " " + @cells["B4"].render(display_ship) + " \n" +
-    "C " + @cells["C1"].render(display_ship) + " " + @cells["C2"].render(display_ship) + " " + @cells["C3"].render(display_ship) + " " + @cells["C4"].render(display_ship) + " \n" +
-    "D " + @cells["D1"].render(display_ship) + " " + @cells["D2"].render(display_ship) + " " + @cells["D3"].render(display_ship) + " " + @cells["D4"].render(display_ship) + " \n"
-    print rendered
-    rendered
-  end
-  
   def variable_board_render(display_ship = false)
     i=0
     render_lines = ["  "]
-    
     @board_size.times do
       i += 1
       render_lines << "#{i.to_s}"
@@ -48,7 +36,6 @@ class Board
     render_lines << @board_size.times do
       render_lines << " \n"
       render_lines << @cells.keys[j][0]
-     
       @board_size.times do
         render_lines << @cells[@cells.keys[j]].render(display_ship)
         j += 1
@@ -56,11 +43,9 @@ class Board
     end
     render_lines.pop
     render_lines = render_lines.join(" ")
-   
     print render_lines + "\n"
     render_lines
   end
-  
 
   private
 
@@ -112,27 +97,4 @@ class Board
     end
     cell_empty.all?(true)
   end
-
 end
-
-
-
-
-
-
-
-
-  # Not yet working... come back to it for Iteration 4
-  # def create_cells
-  #   letters = "A".."Z"
-  #   column_labels = letters.to_a.first(@board_size)
-  #   cell_coords = column_labels.map do |label|
-  #                   label + (label.ord - 64).to_s
-  #                 end
-  #                 pry
-  #   cells_hash = Hash.new{}
-  #   cell_coords.each do |coordinate|
-  #     cells_hash[coordinate] = Cell.new(coordinate)
-  #   end
-  #   cells_hash
-  # end
