@@ -1,10 +1,5 @@
 require './lib/round'
 
-
-
-
-
-
 loop do
   puts 'Welcome to BATTLESHIP'
   puts 'Enter p to play. Enter q to quit.'

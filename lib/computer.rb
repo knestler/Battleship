@@ -76,7 +76,7 @@ class Computer
 
   def render
     puts "=============COMPUTER BOARD============="
-    @board.variable_board_render(true)
+    @board.variable_board_render
   end
 
 end

@@ -19,8 +19,8 @@ class Player
     @ships.length.times do
       render
       puts "The #{display_info[i][0]} is #{display_info[i][1]} units long."
-      
-      puts "Enter the squares for the #{display_info[i][0]}:"    
+
+      puts "Enter the squares for the #{display_info[i][0]}:"
       add_ship_to_board(i)
       i += 1
     end
@@ -30,7 +30,6 @@ class Player
   def add_ship_to_board(ship_element_num)
     coords = get_ship_coords(ship_element_num)
     @board.place(@ships[ship_element_num], coords)
-    render
   end
 
 
