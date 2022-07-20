@@ -1,14 +1,14 @@
-### PAIR PROJECT - BATTLESHIP ###
+# PAIR PROJECT - BATTLESHIP
 
 ## How to play
 Run lib/runner.rb to start the game.
 ## Recommended game states
-#Short game
+### Short game
 Make the board size 4 and add the following ships:
 - Cruiser (3 units)
 - Submarine (2 units)
 
-# Classic Battleship
+### Classic Battleship
 Make the board size 10 and the following ships:
 
 - Carrier	(5 units)
@@ -17,7 +17,7 @@ Make the board size 10 and the following ships:
 - Submarine	(3 units)
 - Destroyer	(2 units)
 
-# RNG Mode
+### RNG Mode
 Make the board size 15 and the following ship:
 
 - Fishing boat (1 unit)
