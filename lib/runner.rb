@@ -6,7 +6,7 @@ loop do
   play = gets.chomp.downcase
   until play == "p" || play == "q"
     puts "Invalid input. \n" + "Enter p to play. Enter q to quit."
-    play
+    play = gets.chomp.downcase
   end
   if play == "p"
     round = Round.new
