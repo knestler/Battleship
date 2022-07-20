@@ -1,9 +1,12 @@
-# require './lib/round.rb'
-# RSpec.describe Round do
-#
-#   it 'has a computer player' do
-#   end
-# end
+require './lib/getter'
+RSpec.describe Getter do
+
+  it 'has a computer player' do
+    getter = Getter.new
+    getter.ship_generator
+  end
+  
+end
 
 
 #

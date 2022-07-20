@@ -14,9 +14,9 @@ loop do
     play
   end
   if play == "p"
-    
-    puts "What size board would you like to play with?"
-    round = Round.new(gets.chomp.to_i)
+    round = Round.new    
+  
+
     round.start
     if round.computer_won?
       puts "I won!"
@@ -28,3 +28,5 @@ loop do
     break
   end
 end
+
+

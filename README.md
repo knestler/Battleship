@@ -26,3 +26,4 @@
 - Ensure all inputs are validated and accept any case
 - Check indentation
 - Iteration 4
+- Bug: When theres a tie theres an infinate loop (runner needs tie function or to actually break).

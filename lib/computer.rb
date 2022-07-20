@@ -3,9 +3,9 @@ class Computer
   attr_accessor :ships
   attr_reader :board
 
-  def initialize(board_size)
+  def initialize(board_size = 4, ships = [Ship.new("Cruiser", 3), Ship.new("Submarine", 2)])
     @board = Board.new(board_size)
-    @ships = [Ship.new("Cruiser", 3), Ship.new("Submarine", 2)]
+    @ships = ships
   end
 
   def random_cell
@@ -76,7 +76,7 @@ class Computer
 
   def render
     puts "=============COMPUTER BOARD============="
-    @board.variable_board_render
+    @board.variable_board_render(true)
   end
 
 end
