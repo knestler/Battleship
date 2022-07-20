@@ -14,9 +14,7 @@ loop do
     play
   end
   if play == "p"
-    round = Round.new    
-  
-
+    round = Round.new
     round.start
     if round.computer_won?
       puts "I won!"
@@ -28,5 +26,3 @@ loop do
     break
   end
 end
-
-
