@@ -16,8 +16,8 @@
   def get_board_size
     puts "What size board would you like to play with?"
     board_size = gets.chomp.to_i
-    until board_size < 26
-      puts "That's too big! Try a little smaller."
+    until board_size < 26 || board_size > 2
+      puts "Invalid board size."
       board_size = gets.chomp.to_i
     end
     board_size
